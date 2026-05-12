@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ReadyEcom
 
-## Getting Started
+Un'innovativa piattaforma infobusiness per corsi di sviluppo cognitivo ed educazione interattiva, costruita con Next.js e configurabile via JSON.
 
-First, run the development server:
+## 🎯 Caratteristiche
+
+- **Piattaforma Infobusiness**: Gestione corsi online con configurazione centralizzata
+- **Responsivo**: Design mobile-first con supporto per dark mode
+- **Corsi Dinamici**: Configurazione completa tramite file JSON
+- **Componenti Moderni**: Built con React 19 e Tailwind CSS
+- **TypeScript**: Tipizzazione completa per maggiore affidabilità
+
+## 🚀 Getting Started
+
+### Prerequisiti
+- Node.js 18+ 
+- npm o yarn
+
+### Installazione
 
 ```bash
+# Clona il repository
+git clone https://github.com/AlessioOliviero95/readyecom.git
+cd readyecom
+
+# Installa le dipendenze
+npm install
+
+# Avvia il server di sviluppo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apri [http://localhost:3000](http://localhost:3000) nel tuo browser per vedere il risultato.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Struttura del Progetto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+readyecom/
+├── app/                  # App directory di Next.js
+│   ├── page.tsx         # Homepage con hero e corsi in evidenza
+│   ├── courses/page.tsx # Pagina completa dei corsi
+│   └── layout.tsx       # Layout principale
+├── components/          # Componenti React
+│   ├── Navigation.tsx   # Navigazione dinamica
+│   └── ProductGrid.tsx  # Griglia dei corsi
+├── config/              # Configurazione JSON
+│   ├── site.json       # Configurazione tema e features
+│   ├── navigation.json # Menu e navigazione
+│   └── products.json   # Dati dei corsi
+├── lib/                # Utility e funzioni server
+│   └── config.ts      # Funzioni di lettura config
+└── public/            # Asset statici
+    └── images/        # Immagini del sito
+```
 
-## Learn More
+## ⚙️ Configurazione
 
-To learn more about Next.js, take a look at the following resources:
+### site.json
+Configura il tema, il nome del sito e le features attive:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+  "site": {
+    "name": "ReadyEcom",
+    "description": "La tua piattaforma di apprendimento"
+  },
+  "features": {
+    "darkMode": true,
+    "cart": true,
+    "categories": false
+  }
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### products.json
+Aggiungi corsi con descrizione, prezzo, rating e varianti.
 
-## Deploy on Vercel
+### navigation.json
+Configura il menu principale, footer e social media.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Sviluppo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Avvia server di sviluppo
+npm run dev
+
+# Build per produzione
+npm run build
+
+# Esegui build di produzione
+npm run start
+
+# Lint del codice
+npm run lint
+```
+
+## 📦 Dipendenze Principali
+
+- **Next.js 15**: Framework React moderno
+- **React 19**: UI library
+- **TypeScript**: Tipizzazione statica
+- **Tailwind CSS**: Utility-first CSS
+
+## 🌐 Deploy
+
+Il progetto è pronto per essere deployato su Vercel:
+
+```bash
+npm run build
+npm run start
+```
+
+O usa Vercel Platform per un deploy automatico dal repository GitHub.
+
+## 📝 License
+
+Questo progetto è aperto per uso privato.
+
+## 👤 Autore
+
+Alessio Oliviero
+
