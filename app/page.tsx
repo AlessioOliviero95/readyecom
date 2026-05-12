@@ -4,18 +4,15 @@ import { getSiteConfig, getProducts } from "@/lib/config";
 export default async function Home() {
   const siteConfig = await getSiteConfig();
   const products = await getProducts();
-
-  const courses = [
-    { name: 'Sviluppo Cognitivo', icon: '🧠', color: 'from-purple-500 to-pink-500', description: 'Potenzia le tue capacità mentali' },
-    { name: 'Educazione Interattiva', icon: '🎮', color: 'from-blue-500 to-cyan-500', description: 'Impara divertendoti' },
-  ];
+  const { features, about, mission } = siteConfig;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white dark:from-slate-900 dark:via-slate-800/30 dark:to-slate-900">
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-transparent dark:from-blue-500/20 dark:via-purple-500/10"></div>
-        
+
         <div className="container mx-auto px-4 py-24 sm:py-32 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -80,30 +77,129 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Courses Section */}
-      <section id="featured-courses" className="container mx-auto px-4 py-20 scroll-smooth">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full text-sm font-bold text-blue-600 dark:text-blue-400 mb-4">
-            ⭐ I NOSTRI BESTSELLER
-          </span>
-          <h2 className="text-4xl font-bold mb-4">Corsi in Evidenza</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I corsi più apprezzati dai nostri studenti, con certificazioni riconosciute e alta soddisfazione
-          </p>
-        </div>
+      {/* Chi Siamo — subito dopo l'hero, configurabile via site.json */}
+      {about?.enabled && (
+        <section className="container mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        <ProductGrid products={products} />
+            {/* Card fondatrice */}
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-400 via-purple-400 to-pink-400 rounded-3xl opacity-10 blur-3xl" />
+              <div className="relative bg-gradient-to-br from-rose-50 to-purple-50 dark:from-slate-800 dark:to-slate-700 rounded-3xl p-10 flex flex-col items-center text-center border border-rose-100 dark:border-slate-600 shadow-xl">
+                <div className="w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 via-pink-400 to-purple-500 flex items-center justify-center text-6xl mb-5 shadow-lg">
+                  {about.avatar}
+                </div>
+                <blockquote className="text-lg font-semibold italic text-gray-700 dark:text-gray-300 leading-relaxed">
+                  &ldquo;{about.quote}&rdquo;
+                </blockquote>
+                <div className="mt-5 flex flex-col items-center gap-1">
+                  <span className="font-black text-gray-900 dark:text-white text-base">{about.founderName}</span>
+                  <span className="text-sm text-rose-500 dark:text-rose-400 font-medium">{about.founderTitle}</span>
+                </div>
+                <div className="mt-6 flex gap-3 flex-wrap justify-center">
+                  {about.founderBadges.map((badge) => (
+                    <span key={badge} className="text-xs px-3 py-1.5 bg-white dark:bg-slate-600 rounded-full text-gray-600 dark:text-gray-300 shadow-sm border border-gray-100 dark:border-slate-500 font-medium">
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-        {/* View All Button */}
-        <div className="text-center mt-16">
-          <button className="px-8 py-4 bg-gray-200 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors">
-            Visualizza tutti i corsi →
-          </button>
-        </div>
-      </section>
+            {/* Testo */}
+            <div className="order-1 lg:order-2">
+              <span className="inline-block px-4 py-2 bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-900/30 dark:to-pink-900/30 rounded-full text-sm font-bold text-rose-600 dark:text-rose-400 mb-5">
+                {about.badge}
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-black mb-6 leading-tight text-gray-900 dark:text-white">
+                {about.headline}{' '}
+                <span className="bg-gradient-to-r from-rose-500 to-purple-600 bg-clip-text text-transparent">
+                  {about.headlineHighlight}
+                </span>
+              </h2>
+              {about.paragraphs.map((p, i) => (
+                <p key={i} className="text-lg text-gray-600 dark:text-gray-400 mb-5 leading-relaxed">
+                  {p}
+                </p>
+              ))}
+              <div className="space-y-4 mt-3">
+                {about.values.map((item) => (
+                  <div key={item.title} className="flex items-start gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm">
+                    <span className="text-2xl shrink-0">{item.icon}</span>
+                    <div>
+                      <p className="font-bold text-gray-900 dark:text-white text-sm">{item.title}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
-      {/* CTA Section */}
-      <section className="container mx-auto px-4 py-20">
+      {/* Featured Courses Section — configurabile via features.featuredCourses */}
+      {features.featuredCourses && (
+        <section id="featured-courses" className="container mx-auto px-4 py-20 scroll-smooth">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full text-sm font-bold text-blue-600 dark:text-blue-400 mb-4">
+              ⭐ I NOSTRI BESTSELLER
+            </span>
+            <h2 className="text-4xl font-bold mb-4">Corsi in Evidenza</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              I corsi più apprezzati dai nostri studenti, con certificazioni riconosciute e alta soddisfazione
+            </p>
+          </div>
+
+          <ProductGrid products={products} />
+
+          {/* Pulsante "Visualizza tutti" — configurabile via features.viewAllCourses */}
+          {features.viewAllCourses && (
+            <div className="text-center mt-16">
+              <a
+                href="/courses"
+                className="inline-block px-8 py-4 bg-gray-200 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-slate-600 transition-colors"
+              >
+                Visualizza tutti i corsi →
+              </a>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* La nostra missione */}
+      {mission?.enabled && (
+        <section className="container mx-auto px-4 pb-20">
+          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 rounded-3xl p-10 sm:p-14 border border-purple-100 dark:border-slate-700">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-block px-4 py-2 bg-white dark:bg-slate-700 rounded-full text-sm font-bold text-purple-600 dark:text-purple-400 mb-5 shadow-sm">
+                {mission.badge}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
+                {mission.headline}{' '}
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {mission.headlineHighlight}
+                </span>
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
+                {mission.text}
+              </p>
+              <div className="grid sm:grid-cols-3 gap-6 text-center">
+                {mission.stats.map((stat) => (
+                  <div key={stat.label} className="bg-white dark:bg-slate-700 rounded-2xl p-5 shadow-sm border border-white dark:border-slate-600">
+                    <div className="text-3xl mb-2">{stat.value}</div>
+                    <p className="font-black text-gray-900 dark:text-white text-sm">{stat.label}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.sub}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA / Newsletter — configurabile via features.newsletter */}
+      {features.newsletter && <section className="container mx-auto px-4 py-20">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-12 sm:p-16 text-white">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
           <div className="relative z-10 max-w-2xl">
@@ -123,7 +219,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }

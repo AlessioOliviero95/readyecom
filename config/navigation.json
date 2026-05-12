@@ -7,7 +7,7 @@
   "main": [
     {
       "label": "Corsi",
-      "href": "#featured-courses",
+      "href": "/courses",
       "icon": "book"
     },
     {

@@ -23,6 +23,41 @@
     "cart": true,
     "wishlist": true,
     "search": true,
-    "categories": false
+    "categories": false,
+    "newsletter": true,
+    "featuredCourses": true,
+    "viewAllCourses": true
+  },
+  "about": {
+    "enabled": true,
+    "badge": "💜 CHI SIAMO",
+    "headline": "Una mamma che aiuta",
+    "headlineHighlight": "altre mamme",
+    "paragraphs": [
+      "Sono una mamma come te — con le stesse stanchezze, gli stessi dubbi, e la stessa voglia di fare meglio ogni giorno. Ho vissuto la difficoltà di trovare tempo per me, di cercare risorse affidabili in mezzo al caos della vita quotidiana.",
+      "Da quella frustrazione è nata questa piattaforma: un posto pensato su misura per le mamme che vogliono crescere, imparare e ritrovare spazio per sé — senza sensi di colpa, senza giudizi, a ritmo proprio."
+    ],
+    "avatar": "👩‍👧",
+    "quote": "Ho imparato sulla mia pelle cosa funziona davvero. Ora voglio condividere ogni strumento che ha cambiato la mia vita con chi è nella mia stessa situazione.",
+    "founderName": "La Fondatrice",
+    "founderTitle": "Mamma & Mentore",
+    "founderBadges": ["❤️ Mamma prima di tutto", "🎓 Formatrice", "🌱 In continua crescita"],
+    "values": [
+      { "icon": "🤝", "title": "Esperienza vera", "desc": "Tutto ciò che insegno l'ho vissuto in prima persona, non letto sui libri." },
+      { "icon": "⏱️", "title": "Pensato per le mamme", "desc": "Lezioni brevi, pratiche, fruibili anche tra un cambio pannolino e l'altro." },
+      { "icon": "💬", "title": "Community di supporto", "desc": "Non sei sola. Trovi altre mamme con cui condividere il percorso." }
+    ]
+  },
+  "mission": {
+    "enabled": true,
+    "badge": "🌟 LA NOSTRA MISSIONE",
+    "headline": "Crediamo che ogni mamma meriti di",
+    "headlineHighlight": "fiorire",
+    "text": "La nostra missione è semplice: offrire alle mamme strumenti concreti, supporto reale e una community autentica per crescere — come persone, come genitori, come donne. Perché prendersi cura di sé non è egoismo: è il primo passo per prendersi cura di chi ami.",
+    "stats": [
+      { "value": "❤️", "label": "Con amore", "sub": "Ogni corso nasce da un'esperienza reale" },
+      { "value": "🌱", "label": "Crescita continua", "sub": "Nuovi contenuti ogni mese" },
+      { "value": "🛡️", "label": "Senza rischi", "sub": "30 giorni di garanzia rimborso" }
+    ]
   }
 }
