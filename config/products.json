@@ -1,0 +1,48 @@
+[
+  {
+    "id": "1",
+    "name": "Sviluppo capacità cognitive",
+    "description": "Un corso completo per sviluppare e potenziare le capacità cognitive attraverso esercizi pratici, giochi interattivi e metodologie scientifiche provate",
+    "price": 79.99,
+    "originalPrice": 129.99,
+    "image": "/products/cognitive-development.jpg",
+    "category": "cognitive",
+    "inStock": true,
+    "rating": 4.9,
+    "reviews": 145,
+    "tags": ["bestseller", "sconto", "popolare"],
+    "variants": [
+      {
+        "name": "Livello",
+        "options": ["Base", "Intermedio", "Avanzato"]
+      },
+      {
+        "name": "Formato",
+        "options": ["Video on Demand", "Live + Registrazioni", "Premium con mentoring"]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Educazione Interattiva e Giochi",
+    "description": "Impara divertendoti! Corso basato su giochi educativi interattivi per sviluppare competenze fondamentali in modo engagante e coinvolgente",
+    "price": 59.99,
+    "originalPrice": 89.99,
+    "image": "/products/interactive-education.jpg",
+    "category": "education",
+    "inStock": true,
+    "rating": 4.7,
+    "reviews": 98,
+    "tags": ["nuovo", "bambini", "famiglie"],
+    "variants": [
+      {
+        "name": "Fascia d'età",
+        "options": ["4-7 anni", "8-12 anni", "Teens"]
+      },
+      {
+        "name": "Durata",
+        "options": ["6 settimane", "12 settimane", "Accesso illimitato"]
+      }
+    ]
+  }
+]

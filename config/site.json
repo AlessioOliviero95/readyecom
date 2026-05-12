@@ -1,0 +1,28 @@
+{
+  "site": {
+    "name": "ReadyEcom",
+    "description": "Piattaforma educativa per lo sviluppo cognitivo",
+    "logo": "/logo.svg"
+  },
+  "theme": {
+    "primary": "#3b82f6",
+    "secondary": "#64748b",
+    "accent": "#f59e0b",
+    "background": "#ffffff",
+    "foreground": "#000000",
+    "muted": "#f8fafc",
+    "border": "#e2e8f0"
+  },
+  "layout": {
+    "maxWidth": "1200px",
+    "padding": "1rem",
+    "borderRadius": "0.5rem"
+  },
+  "features": {
+    "darkMode": true,
+    "cart": true,
+    "wishlist": true,
+    "search": true,
+    "categories": false
+  }
+}
