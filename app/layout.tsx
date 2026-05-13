@@ -38,38 +38,50 @@ export default async function RootLayout({
           <Navigation navConfig={navConfig} features={siteConfig.features} />
           <CartDrawer />
           {children}
-          <footer className="bg-gray-900 dark:bg-slate-950 text-white mt-20">
-            <div className="container mx-auto px-4 py-16">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-blue-400">{siteConfig.site.name}</h3>
-                  <p className="text-gray-400">{siteConfig.site.description}</p>
+          <footer className="bg-gray-900 dark:bg-slate-950 text-white mt-16 sm:mt-20">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+              {/* Top grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                {/* Brand */}
+                <div className="col-span-2 sm:col-span-2 md:col-span-1">
+                  <h3 className="text-lg font-black mb-2 text-white">{siteConfig.site.name}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{siteConfig.site.description}</p>
+                  {/* Social */}
+                  <div className="flex gap-3">
+                    {navConfig.social.map((social) => (
+                      <a
+                        key={social.platform}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-blue-600 text-gray-400 hover:text-white transition-all text-sm"
+                        aria-label={social.platform}
+                      >
+                        {social.icon}
+                      </a>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Footer links — split into pairs for tablet */}
                 {navConfig.footer.map((link) => (
-                  <div key={link.href} className="flex flex-col">
-                    <a href={link.href} className="text-gray-400 hover:text-blue-400 transition-colors">
+                  <div key={link.href}>
+                    <a href={link.href} className="text-gray-300 hover:text-blue-400 transition-colors text-sm font-medium">
                       {link.label}
                     </a>
                   </div>
                 ))}
               </div>
-              <div className="border-t border-gray-800 pt-8">
-                <div className="flex gap-6 justify-center">
-                  {navConfig.social.map((social) => (
-                    <a
-                      key={social.platform}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-blue-400 transition-colors"
-                    >
-                      {social.icon}
-                    </a>
-                  ))}
-                </div>
-                <p className="text-center text-gray-500 mt-8 text-sm">
+
+              {/* Bottom bar */}
+              <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p className="text-gray-500 text-xs sm:text-sm">
                   © 2026 {siteConfig.site.name}. Tutti i diritti riservati.
                 </p>
+                <div className="flex items-center gap-4 text-xs text-gray-600">
+                  <span>🔒 Pagamenti sicuri</span>
+                  <span>🛡️ Garanzia 30 giorni</span>
+                </div>
               </div>
             </div>
           </footer>

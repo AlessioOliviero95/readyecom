@@ -133,16 +133,16 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 py-10 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 max-w-6xl">
 
         {/* Header */}
-        <div className="mb-8 flex items-center gap-4">
-          <Link href="/cart" className="text-gray-400 hover:text-blue-600 transition-colors">
+        <div className="mb-6 sm:mb-8 flex items-center gap-3">
+          <Link href="/cart" className="p-2 -ml-2 text-gray-400 hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </Link>
-          <h1 className="text-2xl font-black text-gray-900 dark:text-white">Checkout</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white">Checkout</h1>
         </div>
 
         <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-10 lg:items-start">
@@ -346,9 +346,9 @@ export default function CheckoutPage() {
             </section>
 
             {/* Security badges */}
-            <div className="flex items-center justify-center gap-6 text-xs text-gray-400 dark:text-gray-500">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-5 text-xs text-gray-400 dark:text-gray-500">
               {['🔒 SSL 256-bit', '🛡️ Pagamento sicuro', '↩️ Rimborso 30gg'].map((b) => (
-                <span key={b}>{b}</span>
+                <span key={b} className="whitespace-nowrap">{b}</span>
               ))}
             </div>
           </div>

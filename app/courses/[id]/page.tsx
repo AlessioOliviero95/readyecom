@@ -59,7 +59,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
       {/* ── HERO BANNER ── */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-blue-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -84,7 +84,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
                 ))}
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-black mb-3 leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3 leading-tight">
                 {product.name}
               </h1>
               {product.subtitle && (
@@ -176,7 +176,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
       </section>
 
       {/* ── MAIN CONTENT + STICKY SIDEBAR ── */}
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-10 lg:items-start">
 
           {/* ── LEFT: Main Content ── */}
@@ -255,8 +255,8 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   Il tuo istruttore
                 </h2>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-3xl shadow-lg">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-2xl sm:text-3xl shadow-lg">
                     {product.instructor.avatar}
                   </div>
                   <div className="flex-1 min-w-0">
