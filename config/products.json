@@ -2,7 +2,8 @@
   {
     "id": "1",
     "name": "Sviluppo capacità cognitive",
-    "description": "Un corso completo per sviluppare e potenziare le capacità cognitive attraverso esercizi pratici, giochi interattivi e metodologie scientifiche provate",
+    "subtitle": "Potenzia memoria, concentrazione e creatività con metodi neuroscientifici provati",
+    "description": "Un corso completo per sviluppare e potenziare le capacità cognitive attraverso esercizi pratici, giochi interattivi e metodologie scientifiche provate. Impara a usare il tuo cervello al massimo delle sue possibilità e trasforma ogni area della tua vita.",
     "price": 79.99,
     "originalPrice": 129.99,
     "image": "/products/cognitive-development.jpg",
@@ -10,6 +11,12 @@
     "inStock": true,
     "rating": 4.9,
     "reviews": 145,
+    "studentsCount": 1847,
+    "duration": "8 settimane",
+    "lessonsCount": 64,
+    "level": "Tutti i livelli",
+    "language": "Italiano",
+    "lastUpdated": "Aprile 2025",
     "tags": ["bestseller", "sconto", "popolare"],
     "variants": [
       {
@@ -20,12 +27,156 @@
         "name": "Formato",
         "options": ["Video on Demand", "Live + Registrazioni", "Premium con mentoring"]
       }
-    ]
+    ],
+    "learningOutcomes": [
+      "Aumenta la capacità di memoria di lavoro fino al 40%",
+      "Tecniche avanzate di concentrazione e focus prolungato",
+      "Strategie di problem-solving creativo e pensiero laterale",
+      "Metodi di apprendimento accelerato basati sulle neuroscienze",
+      "Esercizi quotidiani per il potenziamento cognitivo",
+      "Gestione dello stress mentale e miglioramento della chiarezza",
+      "Sviluppo dell'intelligenza emotiva e sociale",
+      "Tecniche di mindfulness per prestazioni cognitive ottimali"
+    ],
+    "includes": [
+      { "icon": "🎬", "label": "64 lezioni video HD" },
+      { "icon": "📄", "label": "Materiali e schede scaricabili" },
+      { "icon": "♾️", "label": "Accesso illimitato a vita" },
+      { "icon": "📱", "label": "Accesso da mobile e desktop" },
+      { "icon": "🏆", "label": "Certificato di completamento" },
+      { "icon": "💬", "label": "Community esclusiva di studenti" }
+    ],
+    "curriculum": [
+      {
+        "title": "Modulo 1: Fondamenti delle neuroscienze cognitive",
+        "duration": "2h 15min",
+        "lessons": [
+          { "title": "Introduzione: come funziona il tuo cervello", "duration": "12 min", "free": true },
+          { "title": "Neuroplasticità: il cervello che cambia", "duration": "22 min", "free": true },
+          { "title": "Le 4 reti cognitive fondamentali", "duration": "18 min", "free": false },
+          { "title": "Valutazione delle tue capacità attuali", "duration": "25 min", "free": false }
+        ]
+      },
+      {
+        "title": "Modulo 2: Potenziamento della memoria",
+        "duration": "2h 45min",
+        "lessons": [
+          { "title": "La memoria di lavoro: cos'è e come ampliarla", "duration": "20 min", "free": false },
+          { "title": "Tecniche mnemoniche avanzate (Palazzo della Memoria)", "duration": "35 min", "free": false },
+          { "title": "Memoria a lungo termine: consolidazione del ricordo", "duration": "28 min", "free": false },
+          { "title": "Esercizi pratici: 10 tecniche mnemoniche provate", "duration": "42 min", "free": false }
+        ]
+      },
+      {
+        "title": "Modulo 3: Concentrazione e focus",
+        "duration": "2h 30min",
+        "lessons": [
+          { "title": "L'attenzione selettiva: filtrare le distrazioni", "duration": "25 min", "free": false },
+          { "title": "Tecnica Pomodoro avanzata e time-blocking cognitivo", "duration": "30 min", "free": false },
+          { "title": "Flow state: come entrare nella zona di massima performance", "duration": "38 min", "free": false },
+          { "title": "Gestione delle interruzioni digitali", "duration": "17 min", "free": false }
+        ]
+      },
+      {
+        "title": "Modulo 4: Problem-solving e creatività",
+        "duration": "3h 00min",
+        "lessons": [
+          { "title": "Pensiero laterale e creatività applicata", "duration": "32 min", "free": false },
+          { "title": "Framework per il problem-solving sistematico", "duration": "40 min", "free": false },
+          { "title": "Decision-making: come prendere decisioni migliori", "duration": "35 min", "free": false },
+          { "title": "Progetto finale: piano di sviluppo cognitivo personale", "duration": "33 min", "free": false }
+        ]
+      }
+    ],
+    "instructor": {
+      "name": "Dr. Marco Ferretti",
+      "title": "Neuroscienziato & Coach Cognitivo",
+      "bio": "Dottorato in Neuroscienze all'Università La Sapienza di Roma con oltre 15 anni di esperienza nella ricerca sul potenziamento cognitivo. Ha formato più di 12.000 professionisti e collabora con aziende Fortune 500 per ottimizzare le performance mentali dei team. Autore di 3 libri bestseller sulle neuroscienze applicate.",
+      "rating": 4.9,
+      "studentsCount": 12500,
+      "coursesCount": 8,
+      "avatar": "🎓"
+    },
+    "ratingDistribution": {
+      "5": 112,
+      "4": 23,
+      "3": 7,
+      "2": 2,
+      "1": 1
+    },
+    "reviewsList": [
+      {
+        "name": "Giulia M.",
+        "date": "Aprile 2025",
+        "rating": 5,
+        "comment": "Corso straordinario! Ho migliorato la mia concentrazione in modo significativo già dopo le prime 2 settimane. Il Dr. Ferretti spiega concetti complessi in modo chiaro e applicabile. Consiglio vivamente a chiunque voglia performare al massimo.",
+        "verified": true
+      },
+      {
+        "name": "Roberto K.",
+        "date": "Marzo 2025",
+        "rating": 5,
+        "comment": "Finalmente un corso che va oltre la teoria. Gli esercizi pratici fanno la differenza. Ho aumentato la mia produttività del 30% e riesco a memorizzare informazioni complesse molto più velocemente. Investimento che si ripaga subito.",
+        "verified": true
+      },
+      {
+        "name": "Sara T.",
+        "date": "Febbraio 2025",
+        "rating": 5,
+        "comment": "Incredibile! La tecnica del Palazzo della Memoria ha cambiato completamente il mio approccio allo studio. Sono una studentessa universitaria e i risultati agli esami sono migliorati enormemente. Il certificato è anche un bel plus per il CV.",
+        "verified": true
+      },
+      {
+        "name": "Luca B.",
+        "date": "Gennaio 2025",
+        "rating": 4,
+        "comment": "Contenuti di altissima qualità e ben strutturati. Ho dato 4 stelle solo perché avrei voluto ancora più esercizi pratici nel modulo sul problem-solving. Nel complesso, uno dei migliori corsi online che abbia mai acquistato.",
+        "verified": true
+      },
+      {
+        "name": "Martina F.",
+        "date": "Gennaio 2025",
+        "rating": 5,
+        "comment": "Scettica all'inizio, ma dopo 3 settimane i risultati sono evidenti. La mia memoria è migliorata, gestisco molto meglio lo stress lavorativo e mi sento più lucida nelle decisioni. Vale ogni centesimo.",
+        "verified": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "Per chi è adatto questo corso?",
+        "answer": "Il corso è ideale per studenti universitari, professionisti, manager e chiunque voglia migliorare le proprie capacità cognitive. Non è richiesta alcuna conoscenza pregressa di neuroscienze: si parte dalle basi e si progredisce gradualmente fino alle tecniche avanzate."
+      },
+      {
+        "question": "In quanto tempo vedrò i risultati?",
+        "answer": "La maggior parte degli studenti riporta miglioramenti significativi già dopo 2-3 settimane di pratica costante. I risultati completi si manifestano entro le 8 settimane del programma. Tutto dipende dalla costanza negli esercizi quotidiani (30-45 minuti al giorno)."
+      },
+      {
+        "question": "Posso accedere ai contenuti da mobile?",
+        "answer": "Sì, la piattaforma è completamente ottimizzata per tutti i dispositivi: smartphone, tablet e desktop. Puoi studiare quando e dove vuoi, anche offline scaricando le lezioni in anticipo."
+      },
+      {
+        "question": "Il certificato è riconosciuto?",
+        "answer": "Il certificato di completamento è emesso da ReadyEcom ed è riconosciuto nel settore della formazione professionale. Può essere condiviso su LinkedIn e aggiunto al curriculum vitae come attestazione di formazione continua."
+      },
+      {
+        "question": "Cosa succede se non sono soddisfatto?",
+        "answer": "Offriamo una garanzia di rimborso completo entro 30 giorni dall'acquisto, senza fare domande. Siamo così sicuri della qualità del corso che ti rimborsiamo integralmente se non sei soddisfatto per qualsiasi motivo."
+      }
+    ],
+    "guarantee": {
+      "days": 30,
+      "text": "Garanzia soddisfatto o rimborsato entro 30 giorni"
+    },
+    "offer": {
+      "label": "Offerta a Tempo",
+      "expiresAt": "2026-05-20T23:59:59Z"
+    }
   },
   {
     "id": "2",
     "name": "Educazione Interattiva e Giochi",
-    "description": "Impara divertendoti! Corso basato su giochi educativi interattivi per sviluppare competenze fondamentali in modo engagante e coinvolgente",
+    "subtitle": "Trasforma l'apprendimento in un'avventura divertente per bambini e famiglie",
+    "description": "Impara divertendoti! Corso basato su giochi educativi interattivi per sviluppare competenze fondamentali in bambini e ragazzi in modo engagante e coinvolgente. Metodologie validate da pedagogisti ed esperti di sviluppo infantile.",
     "price": 59.99,
     "originalPrice": 89.99,
     "image": "/products/interactive-education.jpg",
@@ -33,6 +184,12 @@
     "inStock": true,
     "rating": 4.7,
     "reviews": 98,
+    "studentsCount": 984,
+    "duration": "6 settimane",
+    "lessonsCount": 48,
+    "level": "Principiante",
+    "language": "Italiano",
+    "lastUpdated": "Maggio 2025",
     "tags": ["nuovo", "bambini", "famiglie"],
     "variants": [
       {
@@ -43,6 +200,149 @@
         "name": "Durata",
         "options": ["6 settimane", "12 settimane", "Accesso illimitato"]
       }
-    ]
+    ],
+    "learningOutcomes": [
+      "Metodi per rendere qualsiasi materia divertente e coinvolgente",
+      "Giochi educativi per sviluppare logica e matematica",
+      "Tecniche per potenziare la lettura e la comprensione",
+      "Attività creative per stimolare l'intelligenza multipla",
+      "Come creare routine di studio efficaci e motivanti",
+      "Strumenti digitali sicuri per l'apprendimento interattivo",
+      "Tecniche per gestire la concentrazione dei bambini",
+      "Metodi Montessori e Waldorf adattati all'era digitale"
+    ],
+    "includes": [
+      { "icon": "🎬", "label": "48 lezioni video HD" },
+      { "icon": "🎯", "label": "50+ attività e giochi scaricabili" },
+      { "icon": "♾️", "label": "Accesso illimitato a vita" },
+      { "icon": "📱", "label": "App companion per bambini" },
+      { "icon": "🏆", "label": "Certificato per genitori/educatori" },
+      { "icon": "👨‍👩‍👧", "label": "Comunità di genitori ed educatori" }
+    ],
+    "curriculum": [
+      {
+        "title": "Modulo 1: Fondamenti dell'apprendimento giocoso",
+        "duration": "1h 45min",
+        "lessons": [
+          { "title": "Perché i bambini imparano meglio giocando", "duration": "15 min", "free": true },
+          { "title": "Le intelligenze multiple di Gardner: identificare i talenti", "duration": "22 min", "free": true },
+          { "title": "Creare l'ambiente di apprendimento ideale", "duration": "18 min", "free": false },
+          { "title": "Valutazione del profilo di apprendimento del bambino", "duration": "20 min", "free": false }
+        ]
+      },
+      {
+        "title": "Modulo 2: Matematica e logica attraverso il gioco",
+        "duration": "2h 00min",
+        "lessons": [
+          { "title": "Giochi per numeri e operazioni (4-7 anni)", "duration": "28 min", "free": false },
+          { "title": "Puzzle logici e problem-solving (8-12 anni)", "duration": "32 min", "free": false },
+          { "title": "Programmazione e pensiero computazionale per teens", "duration": "30 min", "free": false },
+          { "title": "Creare giochi matematici fai-da-te", "duration": "20 min", "free": false }
+        ]
+      },
+      {
+        "title": "Modulo 3: Lettura, scrittura e creatività",
+        "duration": "1h 50min",
+        "lessons": [
+          { "title": "Storie interattive per motivare alla lettura", "duration": "25 min", "free": false },
+          { "title": "Tecniche di storytelling per bambini", "duration": "22 min", "free": false },
+          { "title": "Journaling creativo e mappe mentali", "duration": "30 min", "free": false },
+          { "title": "Teatro e role-play come strumenti educativi", "duration": "13 min", "free": false }
+        ]
+      },
+      {
+        "title": "Modulo 4: Tecnologia e apprendimento digitale sicuro",
+        "duration": "2h 10min",
+        "lessons": [
+          { "title": "Selezionare app educative di qualità", "duration": "20 min", "free": false },
+          { "title": "Screen time intelligente: qualità vs quantità", "duration": "28 min", "free": false },
+          { "title": "Creare un piano di apprendimento settimanale", "duration": "35 min", "free": false },
+          { "title": "Monitorare e celebrare i progressi", "duration": "27 min", "free": false }
+        ]
+      }
+    ],
+    "instructor": {
+      "name": "Prof.ssa Sofia Ricci",
+      "title": "Pedagogista & Esperta di Gamification educativa",
+      "bio": "Laureata in Pedagogia con specializzazione in Didattica Innovativa all'Università di Bologna. Con 12 anni di esperienza nelle scuole primarie e come formatrice di insegnanti, ha sviluppato metodologie premiate dal Ministero dell'Istruzione. Autrice del manuale 'Gioco e Apprendimento' adottato in 200 scuole italiane.",
+      "rating": 4.8,
+      "studentsCount": 7800,
+      "coursesCount": 5,
+      "avatar": "👩‍🏫"
+    },
+    "ratingDistribution": {
+      "5": 71,
+      "4": 19,
+      "3": 6,
+      "2": 2,
+      "1": 0
+    },
+    "reviewsList": [
+      {
+        "name": "Anna M.",
+        "date": "Maggio 2025",
+        "rating": 5,
+        "comment": "Finalmente un corso che affronta l'educazione dei bambini in modo moderno e pratico! Mia figlia di 8 anni adora le attività suggerite. Il suo rapporto con lo studio è completamente cambiato: da una battaglia quotidiana a un momento di gioia condiviso.",
+        "verified": true
+      },
+      {
+        "name": "Paolo C.",
+        "date": "Aprile 2025",
+        "rating": 5,
+        "comment": "Uso questo corso per i miei alunni di quinta elementare e i risultati sono straordinari. I giochi matematici proposti hanno alzato il livello di engagement e i voti sono migliorati mediamente del 25%. Consigliatissimo a tutti gli insegnanti!",
+        "verified": true
+      },
+      {
+        "name": "Elena V.",
+        "date": "Aprile 2025",
+        "rating": 4,
+        "comment": "Ottimo corso con contenuti molto pratici e immediatamente applicabili. Ho apprezzato particolarmente i moduli sulla lettura e la creatività. Avrei voluto più materiale sulla fascia teens, ma nel complesso è davvero valido.",
+        "verified": true
+      },
+      {
+        "name": "Marco D.",
+        "date": "Marzo 2025",
+        "rating": 5,
+        "comment": "Come padre single di due bambini, questo corso mi ha dato strumenti concreti per rendere il tempo studio più efficace e divertente. La comunità di genitori è anche un grande valore aggiunto.",
+        "verified": true
+      },
+      {
+        "name": "Chiara R.",
+        "date": "Febbraio 2025",
+        "rating": 5,
+        "comment": "La Prof.ssa Ricci è una docente eccezionale: appassionata, chiara e molto pratica. Il mio bambino con DSA ha trovato nel metodo giocoso un modo per superare le sue difficoltà. Grazie di cuore!",
+        "verified": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "Il corso è adatto a genitori senza esperienza pedagogica?",
+        "answer": "Assolutamente sì! Il corso è progettato per genitori, nonni e chiunque si prenda cura di bambini, senza richiedere alcuna formazione pedagogica pregressa. Ogni tecnica è spiegata in modo semplice con esempi pratici e materiali pronti all'uso."
+      },
+      {
+        "question": "Posso usarlo anche come insegnante in classe?",
+        "answer": "Certamente! Molti dei nostri studenti sono insegnanti e educatori. Le tecniche e i giochi proposti sono pensati per essere adattabili sia in contesti famigliari che scolastici. Sono già stati adottati in oltre 300 scuole italiane."
+      },
+      {
+        "question": "Il corso è adatto a bambini con difficoltà di apprendimento (DSA)?",
+        "answer": "Il metodo giocoso è particolarmente efficace per bambini con DSA, ADHD e altri profili di apprendimento non standard. La Prof.ssa Ricci dedica un'intera sezione a strategie specifiche per bisogni educativi speciali."
+      },
+      {
+        "question": "Quanto tempo devo dedicare al corso ogni settimana?",
+        "answer": "Il programma è progettato per impegnare circa 3-4 ore a settimana tra le lezioni video (1-2 ore) e le attività pratiche con i bambini (2 ore). La flessibilità dell'accesso illimitato ti permette di adattare i ritmi alle tue esigenze."
+      },
+      {
+        "question": "Cosa includono i materiali scaricabili?",
+        "answer": "I materiali scaricabili includono oltre 50 schede di attività pronte all'uso, giochi da stampare e ritagliare, tracciatori dei progressi settimanali, suggerimenti per ogni fascia d'età e una guida per creare un'aula di apprendimento in casa."
+      }
+    ],
+    "guarantee": {
+      "days": 30,
+      "text": "Garanzia soddisfatto o rimborsato entro 30 giorni"
+    },
+    "offer": {
+      "label": "Offerta a Tempo",
+      "expiresAt": "2026-05-25T23:59:59Z"
+    }
   }
 ]
