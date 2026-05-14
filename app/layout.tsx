@@ -21,6 +21,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ReadyEcom - Piattaforma Educativa",
   description: "Sviluppa le tue capacità cognitive con corsi innovativi e interattivi",
+  openGraph: {
+    title: "ReadyEcom - Piattaforma Educativa",
+    description: "Sviluppa le tue capacità cognitive con corsi innovativi",
+    type: "website",
+    locale: "it_IT",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default async function RootLayout({

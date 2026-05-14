@@ -116,6 +116,7 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
+  emoji: string;
   category: string;
   inStock: boolean;
   rating: number;

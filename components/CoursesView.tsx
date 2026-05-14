@@ -4,9 +4,6 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Product } from '@/lib/config';
 
-const EMOJI_MAP: Record<string, string> = { '1': '🧠', '2': '🎮' };
-function courseEmoji(id: string) { return EMOJI_MAP[id] ?? '📚'; }
-
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-0.5">
@@ -77,7 +74,9 @@ export default function CoursesView({ products }: CoursesViewProps) {
             <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
+            <label htmlFor="course-search" className="sr-only">Cerca corsi</label>
             <input
+              id="course-search"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -142,7 +141,7 @@ export default function CoursesView({ products }: CoursesViewProps) {
                 {/* Thumbnail */}
                 <div className="relative h-40 sm:h-44 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center overflow-hidden">
                   <span className="text-6xl sm:text-7xl group-hover:scale-110 transition-transform duration-300">
-                    {courseEmoji(product.id)}
+                    {product.emoji}
                   </span>
                   {discount > 0 && (
                     <span className="absolute top-3 left-3 bg-green-500 text-white text-xs font-black px-2.5 py-1 rounded-full">

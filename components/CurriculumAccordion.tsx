@@ -18,11 +18,12 @@ export default function CurriculumAccordion({ modules }: CurriculumAccordionProp
     <div className="space-y-2">
       {modules.map((module, index) => (
         <div
-          key={index}
+          key={module.title}
           className="border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden"
         >
           <button
             onClick={() => toggle(index)}
+            aria-expanded={openIndex === index}
             className="w-full flex items-center justify-between p-5 text-left bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
           >
             <div className="flex items-start gap-3 flex-1 min-w-0">

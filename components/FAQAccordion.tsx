@@ -18,11 +18,12 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
     <div className="space-y-3">
       {items.map((item, index) => (
         <div
-          key={index}
+          key={item.question}
           className="border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden"
         >
           <button
             onClick={() => toggle(index)}
+            aria-expanded={openIndex === index}
             className="w-full flex items-center justify-between p-5 text-left bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
           >
             <span className="font-semibold text-gray-900 dark:text-white pr-4 leading-snug">

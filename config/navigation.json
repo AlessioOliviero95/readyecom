@@ -11,34 +11,19 @@
       "icon": "book"
     },
     {
-      "label": "Offerte",
-      "href": "/offers",
-      "icon": "tag",
-      "badge": "Nuovo"
-    },
-    {
-      "label": "Chi siamo",
-      "href": "/about",
-      "icon": "info"
-    },
-    {
       "label": "Contatti",
-      "href": "/contact",
+      "href": "/contatti",
       "icon": "mail"
     }
   ],
   "footer": [
     {
-      "label": "Chi siamo",
-      "href": "/about"
+      "label": "Corsi",
+      "href": "/courses"
     },
     {
-      "label": "Spedizioni",
-      "href": "/shipping"
-    },
-    {
-      "label": "Resi",
-      "href": "/returns"
+      "label": "Contatti",
+      "href": "/contatti"
     },
     {
       "label": "Privacy",

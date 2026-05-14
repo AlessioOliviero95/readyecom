@@ -16,7 +16,9 @@ export default function OfferCountdown({ label, expiresAt }: OfferCountdownProps
   const [showExpiry, setShowExpiry] = useState(false);
 
   useEffect(() => {
-    const diff = Math.floor((new Date(expiresAt).getTime() - Date.now()) / 1000);
+    const expiry = new Date(expiresAt);
+    if (isNaN(expiry.getTime())) return;
+    const diff = Math.floor((expiry.getTime() - Date.now()) / 1000);
     if (diff <= 0) return;
     setSecondsLeft(diff);
 

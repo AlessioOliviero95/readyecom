@@ -13,7 +13,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
           {/* Thumbnail */}
           <div className="relative h-40 sm:h-48 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 overflow-hidden flex items-center justify-center">
             <div className="text-6xl sm:text-7xl group-hover:scale-110 transition-transform duration-300">
-              {product.id === '1' ? '🧠' : '🎮'}
+              {product.emoji}
             </div>
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
             {product.originalPrice && (

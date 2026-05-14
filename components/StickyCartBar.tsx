@@ -27,10 +27,15 @@ export default function StickyCartBar({ productId, productName, price, originalP
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!added) return;
+    const t = setTimeout(() => setAdded(false), 2000);
+    return () => clearTimeout(t);
+  }, [added]);
+
   const handleAdd = () => {
     addItem({ id: productId, name: productName, price, originalPrice, emoji, offer });
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
   };
 
   const discount = originalPrice

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/cartContext';
 
 interface AddToCartButtonProps {
@@ -27,10 +27,15 @@ export default function AddToCartButton({
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
 
+  useEffect(() => {
+    if (!added) return;
+    const t = setTimeout(() => setAdded(false), 2000);
+    return () => clearTimeout(t);
+  }, [added]);
+
   const handleAdd = () => {
     addItem({ id: productId, name, price, originalPrice, emoji, offer });
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
   };
 
   return (
