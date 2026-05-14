@@ -36,10 +36,11 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CartProvider>
-          <Navigation navConfig={navConfig} features={siteConfig.features} />
-          <CartDrawer />
-          {children}
-          <footer className="bg-gray-900 dark:bg-slate-950 text-white mt-16 sm:mt-20">
+          <div className="flex flex-col min-h-screen">
+            <Navigation navConfig={navConfig} features={siteConfig.features} />
+            <CartDrawer />
+            <main className="flex-1">{children}</main>
+            <footer className="bg-gray-900 dark:bg-slate-950 text-white">
             <PageContainer className="py-12 sm:py-16">
               {/* Top grid */}
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
@@ -86,6 +87,7 @@ export default async function RootLayout({
               </div>
             </PageContainer>
           </footer>
+          </div>
         </CartProvider>
       </body>
     </html>
