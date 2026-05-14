@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProducts, getProductById } from '@/lib/config';
+import PageContainer from '@/components/PageContainer';
 import CurriculumAccordion from '@/components/CurriculumAccordion';
 import FAQAccordion from '@/components/FAQAccordion';
 import StickyCartBar from '@/components/StickyCartBar';
@@ -59,7 +60,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
       {/* ── HERO BANNER ── */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+        <PageContainer className="py-10 sm:py-12 lg:py-16">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-blue-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -172,11 +173,11 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
             {/* Right: Sticky Sidebar placeholder (desktop only) — rendered in main below */}
             <div className="hidden lg:block" />
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       {/* ── MAIN CONTENT + STICKY SIDEBAR ── */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <PageContainer className="py-8 sm:py-10">
         <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-10 lg:items-start">
 
           {/* ── LEFT: Main Content ── */}
@@ -567,7 +568,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
             </div>
           </aside>
         </div>
-      </div>
+      </PageContainer>
 
       {/* ── STICKY MOBILE BAR ── */}
       <StickyCartBar

@@ -3,6 +3,7 @@
 import { useCart } from '@/lib/cartContext';
 import Link from 'next/link';
 import OfferCountdown from '@/components/OfferCountdown';
+import PageContainer from '@/components/PageContainer';
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -53,7 +54,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <PageContainer className="py-8 sm:py-10">
         {/* Header */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <div>
@@ -300,7 +301,7 @@ export default function CartPage() {
             </div>
           </aside>
         </div>
-      </div>
+      </PageContainer>
     </div>
   );
 }

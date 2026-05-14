@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cartContext";
 import { getNavigationConfig, getSiteConfig } from "@/lib/config";
+import PageContainer from "@/components/PageContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +40,7 @@ export default async function RootLayout({
           <CartDrawer />
           {children}
           <footer className="bg-gray-900 dark:bg-slate-950 text-white mt-16 sm:mt-20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <PageContainer className="py-12 sm:py-16">
               {/* Top grid */}
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
                 {/* Brand */}
@@ -83,7 +84,7 @@ export default async function RootLayout({
                   <span>🛡️ Garanzia 30 giorni</span>
                 </div>
               </div>
-            </div>
+            </PageContainer>
           </footer>
         </CartProvider>
       </body>

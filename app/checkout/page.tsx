@@ -4,6 +4,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/lib/cartContext';
+import PageContainer from '@/components/PageContainer';
 
 type PaymentMethod = 'card' | 'paypal' | 'googlepay' | 'applepay';
 
@@ -133,7 +134,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 max-w-6xl">
+      <PageContainer size="narrow" className="py-8 sm:py-10">
 
         {/* Header */}
         <div className="mb-6 sm:mb-8 flex items-center gap-3">
@@ -502,7 +503,7 @@ export default function CheckoutPage() {
             </div>
           </aside>
         </div>
-      </div>
+      </PageContainer>
     </div>
   );
 }

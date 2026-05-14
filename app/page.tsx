@@ -1,5 +1,6 @@
 import ProductGrid from "@/components/ProductGrid";
 import { getSiteConfig, getProducts } from "@/lib/config";
+import PageContainer from "@/components/PageContainer";
 
 export default async function Home() {
   const siteConfig = await getSiteConfig();
@@ -13,18 +14,21 @@ export default async function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-transparent dark:from-blue-500/20 dark:via-purple-500/10" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-28 relative z-10">
+        <PageContainer className="py-14 sm:py-20 lg:py-28 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {/* Left */}
             <div>
-              <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+              <a
+                href="#featured-courses"
+                className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/40 hover:border-blue-300 dark:hover:border-blue-700 transition-colors cursor-pointer"
+              >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
                 </span>
                 <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">Nuovi corsi disponibili</span>
-              </div>
+              </a>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight">
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -78,12 +82,12 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       {/* ── CHI SIAMO ── configurabile via site.json about.enabled */}
       {about?.enabled && (
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        <PageContainer as="section" className="py-14 sm:py-20">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
 
             {/* Card fondatrice */}
@@ -139,12 +143,12 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </PageContainer>
       )}
 
       {/* ── CORSI IN EVIDENZA ── configurabile via features.featuredCourses */}
       {features.featuredCourses && (
-        <section id="featured-courses" className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 scroll-mt-20">
+        <PageContainer as="section" id="featured-courses" className="py-14 sm:py-20 scroll-mt-20">
           <div className="text-center mb-10 sm:mb-14">
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full text-sm font-bold text-blue-600 dark:text-blue-400 mb-3">
               ⭐ I NOSTRI BESTSELLER
@@ -167,12 +171,12 @@ export default async function Home() {
               </a>
             </div>
           )}
-        </section>
+        </PageContainer>
       )}
 
       {/* ── MISSIONE ── configurabile via mission.enabled */}
       {mission?.enabled && (
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-14 sm:pb-20">
+        <PageContainer as="section" className="pb-14 sm:pb-20">
           <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 border border-purple-100 dark:border-slate-700">
             <div className="max-w-3xl mx-auto text-center">
               <span className="inline-block px-4 py-2 bg-white dark:bg-slate-700 rounded-full text-sm font-bold text-purple-600 dark:text-purple-400 mb-4 shadow-sm">
@@ -198,32 +202,92 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </PageContainer>
       )}
 
       {/* ── NEWSLETTER / CTA ── configurabile via features.newsletter */}
       {features.newsletter && (
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6 sm:p-10 lg:p-14 text-white">
-            <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full -mr-32 sm:-mr-48 -mt-32 sm:-mt-48 blur-3xl" />
-            <div className="relative z-10 max-w-2xl">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Inizia il tuo percorso di crescita!</h3>
-              <p className="text-base sm:text-lg text-white/90 mb-6">
-                Iscriviti alla nostra community e ricevi uno sconto esclusivo del 15% + accesso ai webinar gratuiti e risorse premium
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="La tua email"
-                  className="flex-1 px-5 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm"
-                />
-                <button className="px-7 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-colors whitespace-nowrap text-sm">
-                  Iscriviti
-                </button>
+        <PageContainer as="section" className="py-14 sm:py-20">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-900 dark:bg-slate-950">
+            {/* Orb decorativi coerenti col sito */}
+            <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-600/25 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-purple-600/25 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 p-7 sm:p-10 lg:p-14 items-center">
+
+              {/* Sinistra: copy + benefici */}
+              <div>
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-bold mb-5 uppercase tracking-wider">
+                  🎁 Offerta esclusiva
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
+                  Inizia il tuo percorso{' '}
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    di crescita.
+                  </span>
+                </h2>
+                <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">
+                  Unisciti a oltre 1.800 mamme che stanno già trasformando la loro vita. Iscriviti e ricevi subito il tuo regalo di benvenuto.
+                </p>
+
+                <ul className="space-y-3">
+                  {[
+                    { icon: '🎓', text: 'Sconto esclusivo del 15% sul primo corso' },
+                    { icon: '📩', text: 'Accesso ai webinar gratuiti del mese' },
+                    { icon: '📚', text: 'Risorse e materiali premium scaricabili' },
+                    { icon: '🛡️', text: 'Garanzia rimborso 30 giorni sempre attiva' },
+                  ].map((item) => (
+                    <li key={item.text} className="flex items-center gap-3 text-slate-300 text-sm">
+                      <span className="text-lg shrink-0">{item.icon}</span>
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Destra: form card */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
+                <p className="text-white font-black text-xl mb-0.5">Iscriviti ora</p>
+                <p className="text-slate-400 text-sm mb-5">Gratuito. Nessuno spam. Cancellati quando vuoi.</p>
+
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    placeholder="Il tuo nome"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition-all"
+                  />
+                  <input
+                    type="email"
+                    placeholder="La tua email"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition-all"
+                  />
+                  <button className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] text-sm">
+                    Voglio il mio 15% di sconto →
+                  </button>
+                </div>
+
+                {/* Social proof */}
+                <div className="mt-5 pt-5 border-t border-white/10 flex items-center gap-3">
+                  <div className="flex -space-x-2 shrink-0">
+                    {['🧑', '👩', '👩‍💼', '👩‍🦱'].map((a, i) => (
+                      <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-xs border-2 border-slate-900">
+                        {a}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-slate-400 text-xs">
+                    <span className="text-white font-bold">1.847</span> mamme già iscritte
+                  </p>
+                </div>
+
+                <p className="text-slate-600 text-xs mt-3 text-center">
+                  🔒 I tuoi dati sono al sicuro. Non li condividiamo mai.
+                </p>
               </div>
             </div>
           </div>
-        </section>
+        </PageContainer>
       )}
     </div>
   );
