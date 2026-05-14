@@ -1,0 +1,65 @@
+{
+  "brand": {
+    "name": "ReadyEcom",
+    "logo": "/images/logo.png",
+    "href": "/"
+  },
+  "main": [
+    {
+      "label": "Corsi",
+      "href": "/courses",
+      "icon": "book"
+    },
+    {
+      "label": "Offerte",
+      "href": "/offers",
+      "icon": "tag",
+      "badge": "Nuovo"
+    },
+    {
+      "label": "Chi siamo",
+      "href": "/about",
+      "icon": "info"
+    },
+    {
+      "label": "Contatti",
+      "href": "/contact",
+      "icon": "mail"
+    }
+  ],
+  "footer": [
+    {
+      "label": "Chi siamo",
+      "href": "/about"
+    },
+    {
+      "label": "Spedizioni",
+      "href": "/shipping"
+    },
+    {
+      "label": "Resi",
+      "href": "/returns"
+    },
+    {
+      "label": "Privacy",
+      "href": "/privacy"
+    }
+  ],
+  "social": [
+    {
+      "platform": "facebook",
+      "url": "https://facebook.com/readyecom",
+      "icon": "📘"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://instagram.com/readyecom",
+      "icon": "📷"
+    },
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/readyecom",
+      "icon": "𝕏"
+    }
+  ]
+}
