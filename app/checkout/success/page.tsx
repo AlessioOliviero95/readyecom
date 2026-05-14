@@ -1,9 +1,70 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { useCart } from '@/lib/cartContext';
+
+type Status = 'loading' | 'succeeded' | 'failed';
 
 export default function CheckoutSuccessPage() {
-  const orderId = Math.random().toString(36).slice(2, 10).toUpperCase();
+  const searchParams = useSearchParams();
+  const { clearCart } = useCart();
+  const [status, setStatus] = useState<Status>('loading');
+
+  const redirectStatus = searchParams.get('redirect_status');
+  const paymentIntentId = searchParams.get('payment_intent');
+
+  const orderId = paymentIntentId?.slice(-8).toUpperCase() ?? Math.random().toString(36).slice(2, 10).toUpperCase();
+
+  useEffect(() => {
+    if (redirectStatus === 'succeeded') {
+      clearCart();
+      setStatus('succeeded');
+    } else if (redirectStatus === 'failed') {
+      setStatus('failed');
+    } else if (!redirectStatus) {
+      // Direct visit without redirect params (e.g. after clearing cart)
+      setStatus('succeeded');
+    } else {
+      setStatus('failed');
+    }
+  }, [redirectStatus, clearCart]);
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex items-center justify-center">
+        <svg className="w-10 h-10 animate-spin text-blue-600" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (status === 'failed') {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex items-center justify-center px-4">
+        <div className="text-center max-w-md w-full">
+          <div className="w-24 h-24 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-12 h-12 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <h1 className="text-3xl font-black text-gray-900 dark:text-white mb-2">Pagamento non riuscito</h1>
+          <p className="text-gray-500 dark:text-gray-400 mb-8">
+            Il pagamento non è andato a buon fine. Nessun importo è stato addebitato.
+          </p>
+          <Link
+            href="/checkout"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all shadow-md"
+          >
+            Riprova
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex items-center justify-center px-4">
@@ -50,10 +111,10 @@ export default function CheckoutSuccessPage() {
             Esplora altri corsi
           </Link>
           <Link
-            href="/"
+            href="/courses"
             className="px-6 py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
           >
-            Vai alla dashboard
+            Vai ai corsi
           </Link>
         </div>
       </div>

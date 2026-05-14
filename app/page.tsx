@@ -53,9 +53,14 @@ export default async function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
-                <button className="inline-flex items-center justify-center px-7 py-3.5 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
+                <a
+                  href={`https://wa.me/${siteConfig.whatsapp?.phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                >
                   Contattaci
-                </button>
+                </a>
               </div>
 
               <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-6">

@@ -19,6 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${product.name} | ReadyEcom`,
     description: product.description,
+    openGraph: {
+      title: `${product.name} | ReadyEcom`,
+      description: product.description,
+      type: 'website',
+    },
   };
 }
 
@@ -162,7 +167,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
                   name={product.name}
                   price={product.price}
                   originalPrice={product.originalPrice}
-                  emoji={product.id === '1' ? '🧠' : '🎮'}
+                  emoji={product.emoji}
                   offer={product.offer}
                   className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-black rounded-xl text-lg hover:from-blue-600 hover:to-purple-600 transition-all shadow-xl"
                 />
@@ -426,7 +431,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
                         className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col"
                       >
                         <div className="h-28 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center text-4xl">
-                          {rel.id === '1' ? '🧠' : '🎮'}
+                          {rel.emoji}
                         </div>
                         <div className="p-4 flex flex-col flex-1">
                           <div className="flex items-center gap-1 mb-2">
@@ -461,7 +466,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
               <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 overflow-hidden">
                 {/* Product preview */}
                 <div className="h-44 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center text-7xl">
-                  {product.id === '1' ? '🧠' : '🎮'}
+                  {product.emoji}
                 </div>
 
                 <div className="p-6">
@@ -519,7 +524,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
                     name={product.name}
                     price={product.price}
                     originalPrice={product.originalPrice}
-                    emoji={product.id === '1' ? '🧠' : '🎮'}
+                    emoji={product.emoji}
                     offer={product.offer}
                     className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-black rounded-xl text-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] mb-3"
                   />
@@ -576,7 +581,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
         productName={product.name}
         price={product.price}
         originalPrice={product.originalPrice}
-        emoji={product.id === '1' ? '🧠' : '🎮'}
+        emoji={product.emoji}
         offer={product.offer}
       />
     </div>
