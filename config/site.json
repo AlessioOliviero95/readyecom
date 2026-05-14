@@ -48,6 +48,12 @@
       { "icon": "💬", "title": "Community di supporto", "desc": "Non sei sola. Trovi altre mamme con cui condividere il percorso." }
     ]
   },
+  "whatsapp": {
+    "enabled": true,
+    "phone": "390000000000",
+    "message": "Ciao! 👋 Ho bisogno di informazioni sui vostri corsi.",
+    "tooltip": "Chatta con noi!"
+  },
   "mission": {
     "enabled": true,
     "badge": "🌟 LA NOSTRA MISSIONE",

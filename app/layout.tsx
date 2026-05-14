@@ -6,6 +6,7 @@ import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cartContext";
 import { getNavigationConfig, getSiteConfig } from "@/lib/config";
 import PageContainer from "@/components/PageContainer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,6 +88,13 @@ export default async function RootLayout({
               </div>
             </PageContainer>
           </footer>
+          {siteConfig.whatsapp?.enabled && (
+            <WhatsAppButton
+              phone={siteConfig.whatsapp.phone}
+              message={siteConfig.whatsapp.message}
+              tooltip={siteConfig.whatsapp.tooltip}
+            />
+          )}
           </div>
         </CartProvider>
       </body>

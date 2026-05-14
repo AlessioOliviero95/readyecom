@@ -26,6 +26,13 @@ export interface MissionConfig {
   stats: { value: string; label: string; sub: string }[];
 }
 
+export interface WhatsAppConfig {
+  enabled: boolean;
+  phone: string;
+  message: string;
+  tooltip: string;
+}
+
 export interface SiteConfig {
   site: {
     name: string;
@@ -56,6 +63,7 @@ export interface SiteConfig {
     featuredCourses: boolean;
     viewAllCourses: boolean;
   };
+  whatsapp?: WhatsAppConfig;
   about?: AboutConfig;
   mission?: MissionConfig;
 }
