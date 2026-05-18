@@ -1,23 +1,96 @@
 {
   "site": {
     "name": "ReadyEcom",
+    "tagline": "Impara. Cresci. Trasformati.",
     "description": "Piattaforma educativa per lo sviluppo cognitivo",
-    "logo": "/logo.svg"
+    "logo": "/logo.svg",
+    "url": "https://readyecom.com",
+    "locale": "it"
   },
+
   "theme": {
-    "primary": "#3b82f6",
-    "secondary": "#64748b",
-    "accent": "#f59e0b",
-    "background": "#ffffff",
-    "foreground": "#000000",
-    "muted": "#f8fafc",
-    "border": "#e2e8f0"
+    "colors": {
+      "primary": "#2563eb",
+      "primaryDark": "#1d4ed8",
+      "secondary": "#7c3aed",
+      "secondaryDark": "#6d28d9",
+      "accent": "#ec4899",
+      "success": "#16a34a",
+      "warning": "#f59e0b",
+      "danger": "#dc2626",
+      "gradient": {
+        "from": "#2563eb",
+        "to": "#7c3aed"
+      }
+    },
+    "shape": {
+      "radiusSm": "0.5rem",
+      "radius": "0.75rem",
+      "radiusLg": "1rem",
+      "radiusXl": "1.5rem",
+      "radiusFull": "9999px"
+    }
   },
+
+  "hero": {
+    "badge": "Nuovi corsi disponibili",
+    "badgeHref": "#featured-courses",
+    "headline": "Sviluppa le tue",
+    "headlineHighlight": "capacità cognitive",
+    "subheadline": "Impara da esperti e trasforma il tuo modo di pensare con corsi innovativi, interattivi e basati su metodologie scientifiche provate.",
+    "primaryCta": { "label": "Esplora i corsi", "href": "#featured-courses" },
+    "secondaryCta": { "label": "Contattaci", "type": "whatsapp" },
+    "stats": [
+      { "type": "count", "label": "Corsi Disponibili", "suffix": "+" },
+      { "type": "static", "value": "🎯", "label": "Risultati Provati" },
+      { "type": "static", "value": "📈", "label": "Certificati" }
+    ],
+    "illustration": "🧠"
+  },
+
+  "featuredCourses": {
+    "badge": "⭐ I NOSTRI BESTSELLER",
+    "title": "Corsi in Evidenza",
+    "subtitle": "I corsi più apprezzati dai nostri studenti, con certificazioni riconosciute e alta soddisfazione",
+    "viewAllLabel": "Visualizza tutti i corsi →"
+  },
+
+  "newsletter": {
+    "badge": "🎁 Offerta esclusiva",
+    "headline": "Inizia il tuo percorso",
+    "headlineHighlight": "di crescita.",
+    "subheadline": "Unisciti a oltre 1.800 studenti che stanno già trasformando la loro vita. Iscriviti e ricevi subito il tuo regalo di benvenuto.",
+    "benefits": [
+      { "icon": "🎓", "text": "Sconto esclusivo del 15% sul primo corso" },
+      { "icon": "📩", "text": "Accesso ai webinar gratuiti del mese" },
+      { "icon": "📚", "text": "Risorse e materiali premium scaricabili" },
+      { "icon": "🛡️", "text": "Garanzia rimborso 30 giorni sempre attiva" }
+    ],
+    "formTitle": "Iscriviti ora",
+    "formSubtitle": "Gratuito. Nessuno spam. Cancellati quando vuoi.",
+    "cta": "Voglio il mio 15% di sconto →",
+    "subscribersCount": "1.847",
+    "socialProofAvatars": ["🧑", "👩", "👩‍💼", "👩‍🦱"],
+    "privacyText": "🔒 I tuoi dati sono al sicuro. Non li condividiamo mai."
+  },
+
+  "business": {
+    "currencySymbol": "€",
+    "refundDays": 30,
+    "freeShipping": true
+  },
+
+  "footer": {
+    "copyrightText": "Tutti i diritti riservati.",
+    "badges": ["🔒 Pagamenti sicuri", "🛡️ Garanzia 30 giorni"]
+  },
+
   "layout": {
-    "maxWidth": "1200px",
+    "maxWidth": "1280px",
     "padding": "1rem",
-    "borderRadius": "0.5rem"
+    "borderRadius": "0.75rem"
   },
+
   "features": {
     "darkMode": true,
     "cart": true,
@@ -28,6 +101,14 @@
     "featuredCourses": true,
     "viewAllCourses": true
   },
+
+  "whatsapp": {
+    "enabled": true,
+    "phone": "390000000000",
+    "message": "Ciao! 👋 Ho bisogno di informazioni sui vostri corsi.",
+    "tooltip": "Chatta con noi!"
+  },
+
   "about": {
     "enabled": true,
     "badge": "💜 CHI SIAMO",
@@ -48,12 +129,7 @@
       { "icon": "💬", "title": "Community di supporto", "desc": "Non sei sola. Trovi altre mamme con cui condividere il percorso." }
     ]
   },
-  "whatsapp": {
-    "enabled": true,
-    "phone": "390000000000",
-    "message": "Ciao! 👋 Ho bisogno di informazioni sui vostri corsi.",
-    "tooltip": "Chatta con noi!"
-  },
+
   "mission": {
     "enabled": true,
     "badge": "🌟 LA NOSTRA MISSIONE",

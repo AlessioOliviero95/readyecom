@@ -33,20 +33,94 @@ export interface WhatsAppConfig {
   tooltip: string;
 }
 
+export interface ThemeColors {
+  primary: string;
+  primaryDark: string;
+  secondary: string;
+  secondaryDark: string;
+  accent: string;
+  success: string;
+  warning: string;
+  danger: string;
+  gradient: { from: string; to: string };
+}
+
+export interface ThemeShape {
+  radiusSm: string;
+  radius: string;
+  radiusLg: string;
+  radiusXl: string;
+  radiusFull: string;
+}
+
+export interface HeroStat {
+  type: 'count' | 'static';
+  value?: string;
+  suffix?: string;
+  label: string;
+}
+
+export interface HeroConfig {
+  badge: string;
+  badgeHref: string;
+  headline: string;
+  headlineHighlight: string;
+  subheadline: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; type: 'whatsapp' | 'link'; href?: string };
+  stats: HeroStat[];
+  illustration: string;
+}
+
+export interface FeaturedCoursesConfig {
+  badge: string;
+  title: string;
+  subtitle: string;
+  viewAllLabel: string;
+}
+
+export interface NewsletterBenefit {
+  icon: string;
+  text: string;
+}
+
+export interface NewsletterConfig {
+  badge: string;
+  headline: string;
+  headlineHighlight: string;
+  subheadline: string;
+  benefits: NewsletterBenefit[];
+  formTitle: string;
+  formSubtitle: string;
+  cta: string;
+  subscribersCount: string;
+  socialProofAvatars: string[];
+  privacyText: string;
+}
+
+export interface BusinessConfig {
+  currencySymbol: string;
+  refundDays: number;
+  freeShipping: boolean;
+}
+
+export interface FooterConfig {
+  copyrightText: string;
+  badges: string[];
+}
+
 export interface SiteConfig {
   site: {
     name: string;
+    tagline?: string;
     description: string;
     logo: string;
+    url?: string;
+    locale?: string;
   };
   theme: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    background: string;
-    foreground: string;
-    muted: string;
-    border: string;
+    colors: ThemeColors;
+    shape: ThemeShape;
   };
   layout: {
     maxWidth: string;
@@ -63,6 +137,11 @@ export interface SiteConfig {
     featuredCourses: boolean;
     viewAllCourses: boolean;
   };
+  hero?: HeroConfig;
+  featuredCourses?: FeaturedCoursesConfig;
+  newsletter?: NewsletterConfig;
+  business?: BusinessConfig;
+  footer?: FooterConfig;
   whatsapp?: WhatsAppConfig;
   about?: AboutConfig;
   mission?: MissionConfig;

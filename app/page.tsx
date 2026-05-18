@@ -5,92 +5,103 @@ import PageContainer from "@/components/PageContainer";
 export default async function Home() {
   const siteConfig = await getSiteConfig();
   const products = await getProducts();
-  const { features, about, mission } = siteConfig;
+  const { features, about, mission, hero, featuredCourses, newsletter, whatsapp } = siteConfig;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white dark:from-slate-900 dark:via-slate-800/30 dark:to-slate-900">
 
-      {/* ── HERO ── */}
+      {/* ── HERO ────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-transparent dark:from-blue-500/20 dark:via-purple-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-(--brand-gradient-from)/10 via-(--brand-gradient-to)/5 to-transparent dark:from-(--brand-gradient-from)/20 dark:via-(--brand-gradient-to)/10" />
 
         <PageContainer className="py-14 sm:py-20 lg:py-28 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {/* Left */}
             <div>
+              {/* Badge */}
               <a
-                href="#featured-courses"
-                className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/40 hover:border-blue-300 dark:hover:border-blue-700 transition-colors cursor-pointer"
+                href={hero?.badgeHref ?? '#featured-courses'}
+                className="badge-brand inline-flex mb-5 cursor-pointer hover:opacity-80 transition-opacity"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
+                <span className="relative flex h-2 w-2 mr-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-(--brand-primary) opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-(--brand-primary)" />
                 </span>
-                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">Nuovi corsi disponibili</span>
+                {hero?.badge ?? 'Nuovi corsi disponibili'}
               </a>
 
+              {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Sviluppa le tue{' '}
+                <span className="text-brand">
+                  {hero?.headline ?? 'Sviluppa le tue'}{' '}
                 </span>
                 <span className="text-gray-900 dark:text-white">
-                  capacità cognitive
+                  {hero?.headlineHighlight ?? 'capacità cognitive'}
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-7 max-w-xl leading-relaxed">
-                Impara da esperti e trasforma il tuo modo di pensare con corsi innovativi, interattivi e basati su metodologie scientifiche provate.
+                {hero?.subheadline ?? 'Impara da esperti e trasforma il tuo modo di pensare con corsi innovativi, interattivi e basati su metodologie scientifiche provate.'}
               </p>
 
+              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="#featured-courses"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                  href={hero?.primaryCta.href ?? '#featured-courses'}
+                  className="btn-brand px-7 py-3.5"
                 >
-                  <span>Esplora i corsi</span>
+                  <span>{hero?.primaryCta.label ?? 'Esplora i corsi'}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
-                <a
-                  href={`https://wa.me/${siteConfig.whatsapp?.phone}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-7 py-3.5 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
-                >
-                  Contattaci
-                </a>
+                {hero?.secondaryCta.type === 'whatsapp' ? (
+                  <a
+                    href={`https://wa.me/${whatsapp?.phone}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-7 py-3.5 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-(--brand-radius) hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                  >
+                    {hero?.secondaryCta.label ?? 'Contattaci'}
+                  </a>
+                ) : (
+                  <a
+                    href={hero?.secondaryCta.href ?? '/contatti'}
+                    className="inline-flex items-center justify-center px-7 py-3.5 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-(--brand-radius) hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                  >
+                    {hero?.secondaryCta.label ?? 'Contattaci'}
+                  </a>
+                )}
               </div>
 
+              {/* Stats */}
               <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-6">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-blue-600 mb-0.5">{products.length}+</div>
-                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Corsi Disponibili</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-purple-600 mb-0.5">🎯</div>
-                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Risultati Provati</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-pink-600 mb-0.5">📈</div>
-                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Certificati</p>
-                </div>
+                {(hero?.stats ?? []).map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="text-2xl sm:text-3xl font-black text-(--brand-primary) mb-0.5">
+                      {stat.type === 'count'
+                        ? `${products.length}${stat.suffix ?? ''}`
+                        : stat.value}
+                    </div>
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right illustration — desktop only */}
+            {/* Right illustration */}
             <div className="relative h-72 lg:h-96 hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 rounded-3xl opacity-10 blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-(--brand-gradient-from) via-(--brand-secondary) to-(--brand-accent) rounded-3xl opacity-10 blur-3xl" />
               <div className="relative h-full flex items-center justify-center text-7xl lg:text-8xl">
-                🧠
+                {hero?.illustration ?? '🧠'}
               </div>
             </div>
           </div>
         </PageContainer>
       </section>
 
-      {/* ── CHI SIAMO ── configurabile via site.json about.enabled */}
+      {/* ── CHI SIAMO ───────────────────────────────────────────────────── */}
       {about?.enabled && (
         <PageContainer as="section" className="py-14 sm:py-20">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
@@ -151,16 +162,18 @@ export default async function Home() {
         </PageContainer>
       )}
 
-      {/* ── CORSI IN EVIDENZA ── configurabile via features.featuredCourses */}
+      {/* ── CORSI IN EVIDENZA ───────────────────────────────────────────── */}
       {features.featuredCourses && (
         <PageContainer as="section" id="featured-courses" className="py-14 sm:py-20 scroll-mt-20">
           <div className="text-center mb-10 sm:mb-14">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full text-sm font-bold text-blue-600 dark:text-blue-400 mb-3">
-              ⭐ I NOSTRI BESTSELLER
+            <span className="badge-brand mb-3 inline-flex">
+              {featuredCourses?.badge ?? '⭐ I NOSTRI BESTSELLER'}
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">Corsi in Evidenza</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
+              {featuredCourses?.title ?? 'Corsi in Evidenza'}
+            </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
-              I corsi più apprezzati dai nostri studenti, con certificazioni riconosciute e alta soddisfazione
+              {featuredCourses?.subtitle ?? 'I corsi più apprezzati dai nostri studenti'}
             </p>
           </div>
 
@@ -170,16 +183,16 @@ export default async function Home() {
             <div className="text-center mt-10 sm:mt-14">
               <a
                 href="/courses"
-                className="inline-block px-8 py-4 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                className="inline-block px-8 py-4 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-bold rounded-(--brand-radius) hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
               >
-                Visualizza tutti i corsi →
+                {featuredCourses?.viewAllLabel ?? 'Visualizza tutti i corsi →'}
               </a>
             </div>
           )}
         </PageContainer>
       )}
 
-      {/* ── MISSIONE ── configurabile via mission.enabled */}
+      {/* ── MISSIONE ────────────────────────────────────────────────────── */}
       {mission?.enabled && (
         <PageContainer as="section" className="pb-14 sm:pb-20">
           <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 border border-purple-100 dark:border-slate-700">
@@ -210,39 +223,31 @@ export default async function Home() {
         </PageContainer>
       )}
 
-      {/* ── NEWSLETTER / CTA ── configurabile via features.newsletter */}
-      {features.newsletter && (
+      {/* ── NEWSLETTER ──────────────────────────────────────────────────── */}
+      {features.newsletter && newsletter && (
         <PageContainer as="section" className="py-14 sm:py-20">
           <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-900 dark:bg-slate-950">
-            {/* Orb decorativi coerenti col sito */}
-            <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-600/25 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-purple-600/25 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -top-24 -left-24 w-72 h-72 bg-(--brand-gradient-from)/25 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-(--brand-gradient-to)/25 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-(--brand-accent)/10 rounded-full blur-2xl pointer-events-none" />
 
             <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 p-7 sm:p-10 lg:p-14 items-center">
 
               {/* Sinistra: copy + benefici */}
               <div>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-bold mb-5 uppercase tracking-wider">
-                  🎁 Offerta esclusiva
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-(--brand-primary)/20 border border-(--brand-primary)/30 text-blue-400 text-xs font-bold mb-5 uppercase tracking-wider">
+                  {newsletter.badge}
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
-                  Inizia il tuo percorso{' '}
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    di crescita.
-                  </span>
+                  {newsletter.headline}{' '}
+                  <span className="text-brand">{newsletter.headlineHighlight}</span>
                 </h2>
                 <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">
-                  Unisciti a oltre 1.800 mamme che stanno già trasformando la loro vita. Iscriviti e ricevi subito il tuo regalo di benvenuto.
+                  {newsletter.subheadline}
                 </p>
 
                 <ul className="space-y-3">
-                  {[
-                    { icon: '🎓', text: 'Sconto esclusivo del 15% sul primo corso' },
-                    { icon: '📩', text: 'Accesso ai webinar gratuiti del mese' },
-                    { icon: '📚', text: 'Risorse e materiali premium scaricabili' },
-                    { icon: '🛡️', text: 'Garanzia rimborso 30 giorni sempre attiva' },
-                  ].map((item) => (
+                  {newsletter.benefits.map((item) => (
                     <li key={item.text} className="flex items-center gap-3 text-slate-300 text-sm">
                       <span className="text-lg shrink-0">{item.icon}</span>
                       {item.text}
@@ -253,41 +258,41 @@ export default async function Home() {
 
               {/* Destra: form card */}
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
-                <p className="text-white font-black text-xl mb-0.5">Iscriviti ora</p>
-                <p className="text-slate-400 text-sm mb-5">Gratuito. Nessuno spam. Cancellati quando vuoi.</p>
+                <p className="text-white font-black text-xl mb-0.5">{newsletter.formTitle}</p>
+                <p className="text-slate-400 text-sm mb-5">{newsletter.formSubtitle}</p>
 
                 <div className="space-y-3">
                   <input
                     type="text"
                     placeholder="Il tuo nome"
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition-all"
+                    className="w-full px-4 py-3 rounded-(--brand-radius) bg-white/10 border border-white/15 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-(--brand-primary) text-sm transition-all"
                   />
                   <input
                     type="email"
                     placeholder="La tua email"
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition-all"
+                    className="w-full px-4 py-3 rounded-(--brand-radius) bg-white/10 border border-white/15 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-(--brand-primary) text-sm transition-all"
                   />
-                  <button className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] text-sm">
-                    Voglio il mio 15% di sconto →
+                  <button className="btn-brand w-full py-3.5 text-sm">
+                    {newsletter.cta}
                   </button>
                 </div>
 
                 {/* Social proof */}
                 <div className="mt-5 pt-5 border-t border-white/10 flex items-center gap-3">
                   <div className="flex -space-x-2 shrink-0">
-                    {['🧑', '👩', '👩‍💼', '👩‍🦱'].map((a, i) => (
-                      <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-xs border-2 border-slate-900">
+                    {newsletter.socialProofAvatars.map((a, i) => (
+                      <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-(--brand-gradient-from) to-(--brand-gradient-to) flex items-center justify-center text-xs border-2 border-slate-900">
                         {a}
                       </div>
                     ))}
                   </div>
                   <p className="text-slate-400 text-xs">
-                    <span className="text-white font-bold">1.847</span> mamme già iscritte
+                    <span className="text-white font-bold">{newsletter.subscribersCount}</span> studenti già iscritti
                   </p>
                 </div>
 
                 <p className="text-slate-600 text-xs mt-3 text-center">
-                  🔒 I tuoi dati sono al sicuro. Non li condividiamo mai.
+                  {newsletter.privacyText}
                 </p>
               </div>
             </div>

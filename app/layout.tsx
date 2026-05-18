@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import CartDrawer from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cartContext";
 import { getNavigationConfig, getSiteConfig } from "@/lib/config";
+import { generateThemeCSS } from "@/lib/theme";
 import PageContainer from "@/components/PageContainer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -37,9 +38,14 @@ export default async function RootLayout({
 }>) {
   const navConfig = await getNavigationConfig();
   const siteConfig = await getSiteConfig();
+  const themeCSS = generateThemeCSS(siteConfig);
 
   return (
-    <html lang="it" suppressHydrationWarning>
+    <html lang={siteConfig.site.locale ?? 'it'} suppressHydrationWarning>
+      <head>
+        {/* Brand CSS variables from config/site.json — enables full rebranding without touching components */}
+        <style dangerouslySetInnerHTML={{ __html: themeCSS }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -86,11 +92,12 @@ export default async function RootLayout({
               {/* Bottom bar */}
               <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <p className="text-gray-500 text-xs sm:text-sm">
-                  © 2026 {siteConfig.site.name}. Tutti i diritti riservati.
+                  © {new Date().getFullYear()} {siteConfig.site.name}. {siteConfig.footer?.copyrightText ?? 'Tutti i diritti riservati.'}
                 </p>
                 <div className="flex items-center gap-4 text-xs text-gray-600">
-                  <span>🔒 Pagamenti sicuri</span>
-                  <span>🛡️ Garanzia 30 giorni</span>
+                  {(siteConfig.footer?.badges ?? ['🔒 Pagamenti sicuri', '🛡️ Garanzia 30 giorni']).map((b) => (
+                    <span key={b}>{b}</span>
+                  ))}
                 </div>
               </div>
             </PageContainer>
