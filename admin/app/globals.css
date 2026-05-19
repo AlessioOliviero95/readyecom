@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  transition: filter 0.2s, transform 0.15s;
+}
+.btn-primary:hover { filter: brightness(0.9); transform: scale(1.01); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; filter: none; }

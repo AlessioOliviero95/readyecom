@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { createSupabaseAdminClient } from './supabase-admin';
 
 export interface AboutConfig {
   enabled: boolean;
@@ -258,20 +259,49 @@ function readJsonFile<T>(filename: string): T {
   return JSON.parse(fileContents);
 }
 
+async function getFromSupabase<T>(key: string): Promise<T | null> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !serviceKey) return null;
+  try {
+    const supabase = createSupabaseAdminClient();
+    const { data, error } = await supabase
+      .from('app_configs')
+      .select('value')
+      .eq('key', key)
+      .single();
+    if (error || !data?.value) return null;
+    const val = data.value;
+    if (Array.isArray(val) && val.length === 0) return null;
+    if (typeof val === 'object' && !Array.isArray(val) && Object.keys(val).length === 0) return null;
+    return val as T;
+  } catch {
+    return null;
+  }
+}
+
 let siteConfigCache: SiteConfig | null = null;
 let productsCache: Product[] | null = null;
 let navigationCache: NavigationConfig | null = null;
 
+export async function invalidateConfigCaches() {
+  siteConfigCache = null;
+  productsCache = null;
+  navigationCache = null;
+}
+
 export async function getSiteConfig(): Promise<SiteConfig> {
   if (!siteConfigCache) {
-    siteConfigCache = readJsonFile<SiteConfig>('site.json');
+    const fromDB = await getFromSupabase<SiteConfig>('site');
+    siteConfigCache = fromDB ?? readJsonFile<SiteConfig>('site.json');
   }
   return siteConfigCache;
 }
 
 export async function getProducts(): Promise<Product[]> {
   if (!productsCache) {
-    productsCache = readJsonFile<Product[]>('products.json');
+    const fromDB = await getFromSupabase<Product[]>('products');
+    productsCache = fromDB ?? readJsonFile<Product[]>('products.json');
   }
   return productsCache;
 }
@@ -283,7 +313,8 @@ export async function getProductById(id: string): Promise<Product | null> {
 
 export async function getNavigationConfig(): Promise<NavigationConfig> {
   if (!navigationCache) {
-    navigationCache = readJsonFile<NavigationConfig>('navigation.json');
+    const fromDB = await getFromSupabase<NavigationConfig>('navigation');
+    navigationCache = fromDB ?? readJsonFile<NavigationConfig>('navigation.json');
   }
   return navigationCache;
 }

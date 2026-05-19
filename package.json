@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dev:admin": "next dev ./admin -p 3001",
+    "build:admin": "next build ./admin",
+    "start:admin": "next start ./admin -p 3001"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^6.3.0",
     "@stripe/stripe-js": "^9.5.0",
+    "@supabase/ssr": "^0.10.3",
     "@supabase/supabase-js": "^2.99.3",
     "next": "16.1.7",
     "react": "19.2.3",
