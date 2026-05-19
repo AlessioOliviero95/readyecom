@@ -280,30 +280,14 @@ async function getFromSupabase<T>(key: string): Promise<T | null> {
   }
 }
 
-let siteConfigCache: SiteConfig | null = null;
-let productsCache: Product[] | null = null;
-let navigationCache: NavigationConfig | null = null;
-
-export async function invalidateConfigCaches() {
-  siteConfigCache = null;
-  productsCache = null;
-  navigationCache = null;
-}
-
 export async function getSiteConfig(): Promise<SiteConfig> {
-  if (!siteConfigCache) {
-    const fromDB = await getFromSupabase<SiteConfig>('site');
-    siteConfigCache = fromDB ?? readJsonFile<SiteConfig>('site.json');
-  }
-  return siteConfigCache;
+  const fromDB = await getFromSupabase<SiteConfig>('site');
+  return fromDB ?? readJsonFile<SiteConfig>('site.json');
 }
 
 export async function getProducts(): Promise<Product[]> {
-  if (!productsCache) {
-    const fromDB = await getFromSupabase<Product[]>('products');
-    productsCache = fromDB ?? readJsonFile<Product[]>('products.json');
-  }
-  return productsCache;
+  const fromDB = await getFromSupabase<Product[]>('products');
+  return fromDB ?? readJsonFile<Product[]>('products.json');
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
@@ -312,9 +296,6 @@ export async function getProductById(id: string): Promise<Product | null> {
 }
 
 export async function getNavigationConfig(): Promise<NavigationConfig> {
-  if (!navigationCache) {
-    const fromDB = await getFromSupabase<NavigationConfig>('navigation');
-    navigationCache = fromDB ?? readJsonFile<NavigationConfig>('navigation.json');
-  }
-  return navigationCache;
+  const fromDB = await getFromSupabase<NavigationConfig>('navigation');
+  return fromDB ?? readJsonFile<NavigationConfig>('navigation.json');
 }

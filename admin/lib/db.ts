@@ -26,6 +26,22 @@ export async function writeConfig(key: string, value: unknown): Promise<void> {
     { onConflict: 'key' }
   );
   if (error) throw new Error(error.message);
+
+  // Notifica il sito e-commerce di rigenerare le pagine
+  const storefrontUrl = process.env.STOREFRONT_URL ?? 'http://localhost:3000';
+  const token = process.env.REVALIDATION_TOKEN;
+  if (token) {
+    try {
+      await fetch(`${storefrontUrl}/api/revalidate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+        signal: AbortSignal.timeout(5000),
+      });
+    } catch {
+      // Non bloccante: se il sito non è raggiungibile, il salvataggio va comunque a buon fine
+    }
+  }
 }
 
 export async function getConfigMeta(): Promise<{ key: string; updated_at: string }[]> {
