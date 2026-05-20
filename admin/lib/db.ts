@@ -32,15 +32,21 @@ export async function writeConfig(key: string, value: unknown): Promise<void> {
   const token = process.env.REVALIDATION_TOKEN;
   if (token) {
     try {
-      await fetch(`${storefrontUrl}/api/revalidate`, {
+      const res = await fetch(`${storefrontUrl}/api/revalidate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token }),
         signal: AbortSignal.timeout(5000),
       });
-    } catch {
-      // Non bloccante: se il sito non è raggiungibile, il salvataggio va comunque a buon fine
+      if (!res.ok) {
+        const body = await res.text().catch(() => '');
+        console.warn(`[db] Revalidazione storefront fallita (${res.status}):`, body);
+      }
+    } catch (e) {
+      console.warn(`[db] Storefront non raggiungibile (${storefrontUrl}):`, (e as Error).message);
     }
+  } else {
+    console.warn('[db] REVALIDATION_TOKEN mancante — storefront non notificato');
   }
 }
 

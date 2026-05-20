@@ -5,15 +5,15 @@ import { writeConfig } from '@/lib/db';
 
 export async function saveSiteConfig(value: unknown) {
   await writeConfig('site', value);
-  revalidatePath('/site');
+  revalidatePath('/', 'layout');
 }
 
 export async function saveNavigationConfig(value: unknown) {
   await writeConfig('navigation', value);
-  revalidatePath('/navigation');
+  revalidatePath('/', 'layout');
 }
 
 export async function saveProducts(value: unknown) {
   await writeConfig('products', value);
-  revalidatePath('/products');
+  revalidatePath('/', 'layout');
 }

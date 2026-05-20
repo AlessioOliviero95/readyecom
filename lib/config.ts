@@ -262,7 +262,10 @@ function readJsonFile<T>(filename: string): T {
 async function getFromSupabase<T>(key: string): Promise<T | null> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !serviceKey) return null;
+  if (!url || !serviceKey) {
+    console.warn(`[config] Supabase non configurato — fallback JSON per "${key}"`);
+    return null;
+  }
   try {
     const supabase = createSupabaseAdminClient();
     const { data, error } = await supabase
@@ -270,23 +273,30 @@ async function getFromSupabase<T>(key: string): Promise<T | null> {
       .select('value')
       .eq('key', key)
       .single();
-    if (error || !data?.value) return null;
+    if (error) {
+      console.error(`[config] Errore Supabase per "${key}":`, error.message, error.code);
+      return null;
+    }
+    if (!data?.value) return null;
     const val = data.value;
     if (Array.isArray(val) && val.length === 0) return null;
     if (typeof val === 'object' && !Array.isArray(val) && Object.keys(val).length === 0) return null;
     return val as T;
-  } catch {
+  } catch (e) {
+    console.error(`[config] Eccezione inattesa per "${key}":`, e);
     return null;
   }
 }
 
 export async function getSiteConfig(): Promise<SiteConfig> {
   const fromDB = await getFromSupabase<SiteConfig>('site');
+  if (!fromDB) console.info('[config] site → JSON fallback');
   return fromDB ?? readJsonFile<SiteConfig>('site.json');
 }
 
 export async function getProducts(): Promise<Product[]> {
   const fromDB = await getFromSupabase<Product[]>('products');
+  if (!fromDB) console.info('[config] products → JSON fallback');
   return fromDB ?? readJsonFile<Product[]>('products.json');
 }
 
@@ -297,5 +307,6 @@ export async function getProductById(id: string): Promise<Product | null> {
 
 export async function getNavigationConfig(): Promise<NavigationConfig> {
   const fromDB = await getFromSupabase<NavigationConfig>('navigation');
+  if (!fromDB) console.info('[config] navigation → JSON fallback');
   return fromDB ?? readJsonFile<NavigationConfig>('navigation.json');
 }
